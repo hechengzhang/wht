@@ -1,0 +1,15 @@
+{	
+	"schoolName": "湖南师范大学",
+	"schooId": "1",
+	"linkList": [
+		{
+			"linkName": "湖南师范大学教务处",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "湖南师范大学教务管理系统",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}
+	]
+}
