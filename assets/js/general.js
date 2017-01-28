@@ -83,6 +83,7 @@ function provinceList() {
 		if ($(this).hasClass('next')) {
 			$('.chooose-container .step1').fadeOut();
 			$('.chooose-container .step2').fadeIn();
+			$('.chooose-container .title').text('选择学校');
 			var provinceName = $('.step1 li.current').text();
 			var data = {provinceName: provinceName};
 			$.ajax({
@@ -113,15 +114,18 @@ function provinceList() {
 		} else if ($(this).hasClass('last')) {
 			$('.chooose-container .step2').fadeOut();
 			$('.chooose-container .step1').fadeIn();
+			$('.chooose-container .title').text('选择学校所在省份');
 		} else if ($(this).hasClass('cancel')) {
 			$('.choose-school-wapper').fadeOut(function(){
 				$('.chooose-container .step2').fadeOut();
 				$('.chooose-container .step1').fadeIn();
+				$('.chooose-container .title').text('选择学校所在省份');
 			});
 		} else if ($(this).hasClass('ok')) {
 			$('.choose-school-wapper').fadeOut(function(){
 				$('.chooose-container .step2').fadeOut();
 				$('.chooose-container .step1').fadeIn();
+				$('.chooose-container .title').text('选择学校所在省份');
 			});
 			var schoolId = $('.step2 li.current').data('data-id');
 			var schoolJsonUrl = 'assets/data/'+ schoolId +'.json';
