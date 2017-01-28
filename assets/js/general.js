@@ -1,6 +1,10 @@
 $('body').ready(function(){
 	provinceList(); // 省份列表
 	searchEvent(); // 搜索
+	
+	$('.choose-school').click(function(){
+		$('.choose-school-wapper').fadeIn();
+	});
 });
 
 function searchEvent() {
@@ -67,56 +71,79 @@ function searchEngineEvent() {
 }
 
 function provinceList() {
-	$.ajax({
-		url: 'assets/json/province.json',
-	    type: 'post',
-	    data: '',
-	    contentType : "application/json; charset=utf-8",
-	    dataType: 'json',
-	    async: false,
-	    cache : false,
-	    success:function(response){
-			var resp = response.provinceList;
-			var provinceList = '';
-			$.each(resp, function(i,item) {
-				var provinceList = $('<a>').data('data-schoolList',item.schoolList).text(item.provinceName);
-				$('#test').append(provinceList);
-			});
-			
-			schoolHrefList();
-		}
-	});
-}
-
-function schoolHrefList() {
-	$('#test').on('click','a',function(){
-		var schoolList = $(this).data('data-schoolList');
-		var html = '';
-		$.each(schoolList, function(i,item) {
-			html += '<a>'+ item.schoolName +'<input type="hidden" value="'+ item.schooId +'" /></a>';
-			$('#test2').html(html);
-		});
+	$('.chooose-container .list').on('click','li',function(){
+		$(this).addClass('current').siblings('.current').removeClass('current');
 	});
 	
-	$('#test2').on('click','a',function(){
-		var schoolId = $(this).find('input').val();
-		var schoolJsonUrl = 'assets/data/'+ schoolId +'.json';
-		$.ajax({
-			url: schoolJsonUrl,
-		    type: 'post',
-		    data: '',
-		    contentType : "application/json; charset=utf-8",
-		    dataType: 'json',
-		    async: false,
-		    cache : false,
-		    success:function(response){
-				var resp = response.linkList;
-				var linkList = '';
-				$.each(resp, function(i,item) {
-					linkList += '<a href="'+ item.linkUrl +'">'+ item.linkName +'</a>' ;
-					$('#test3').html(linkList);
-				});
-			}
-		});
+	$('.chooose-container .icon-close').click(function(){
+		$('.choose-school-wapper').fadeOut();
+	});
+	
+	$('.chooose-container').on('click','button',function(){
+		if ($(this).hasClass('next')) {
+			$('.chooose-container .step1').fadeOut();
+			$('.chooose-container .step2').fadeIn();
+			var provinceName = $('.step1 li.current').text();
+			var data = {provinceName: provinceName};
+			$.ajax({
+				url: 'assets/json/province.json',
+			    type: 'post',
+			    data: JSON.stringify(data),
+			    contentType : "application/json; charset=utf-8",
+			    dataType: 'json',
+			    async: false,
+			    cache : false,
+			    success:function(response){
+			    		$('.step2 .list').html('');
+					var resp = response.provinceList;
+					$.each(resp, function(i,item) {
+						if (provinceName == item.provinceName) {
+							var schoolResp = item.schoolList;
+							$.each(schoolResp, function(i,item) {
+								var provinceList = '';
+								provinceList = $('<li>').data('data-id',item.schoolId).text(item.schoolName);
+								$('.step2 .list').append(provinceList);
+							});
+						}
+					});
+				}
+			});
+			
+			$('.step2 .list li:first').addClass('current');
+		} else if ($(this).hasClass('last')) {
+			$('.chooose-container .step2').fadeOut();
+			$('.chooose-container .step1').fadeIn();
+		} else if ($(this).hasClass('cancel')) {
+			$('.choose-school-wapper').fadeOut(function(){
+				$('.chooose-container .step2').fadeOut();
+				$('.chooose-container .step1').fadeIn();
+			});
+		} else if ($(this).hasClass('ok')) {
+			$('.choose-school-wapper').fadeOut(function(){
+				$('.chooose-container .step2').fadeOut();
+				$('.chooose-container .step1').fadeIn();
+			});
+			var schoolId = $('.step2 li.current').data('data-id');
+			var schoolJsonUrl = 'assets/data/'+ schoolId +'.json';
+			$.ajax({
+				url: schoolJsonUrl,
+			    type: 'post',
+			    data: '',
+			    contentType : "application/json; charset=utf-8",
+			    dataType: 'json',
+			    async: false,
+			    cache : false,
+			    success:function(response){
+			    		$('#school .link-wapper').html('');
+					var resp = response.linkList;
+					$.each(resp, function(i,item) {
+						var linkList = '';
+						linkList = '<li><a href="'+ item.linkUrl +'">'+ item.linkName +'</a></li>' ;
+						$('#school .link-wapper').append(linkList);
+					});
+				}
+			});
+		}
+		
 	});
 }

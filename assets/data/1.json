@@ -3,11 +3,39 @@
 	"schooId": "1",
 	"linkList": [
 		{
-			"linkName": "湖南师范大学教务处",
+			"linkName": "教务处",
 			"linkUrl": "www.hnxxxx.com",
 			"img": ""
 		}, {
-			"linkName": "湖南师范大学教务管理系统",
+			"linkName": "教务管理系统",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "考试中心",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "学生会",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "工学院",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "理学院",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "生科院",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "新传院",
+			"linkUrl": "www.hnxxxx.com",
+			"img": ""
+		}, {
+			"linkName": "外国语学院",
 			"linkUrl": "www.hnxxxx.com",
 			"img": ""
 		}

@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("//at.alicdn.com/t/font_im6l9by22863l3di.css");
+@import url("//at.alicdn.com/t/font_e446xikaro6o5hfr.css");
 .clear-both:before,
 .clear-both:after {
 	clear: both;
@@ -69,12 +69,30 @@ footer {
 }
 
 .logo {
+	width: 200px;
+	float: left;
+	overflow: hidden;
+    height: 60px;
 	line-height: 60px;
 }
 
 .logo i {
 	font-size: 28px;
 	color: rgba(255,255,255,0.8);
+}
+
+.setting {
+	float: right;
+	color: rgba(255,255,255,0.8);
+	height: 60px;
+	cursor: pointer;
+}
+
+.choose-school {
+	display: block;
+	height: 30px;
+	margin: 15px 0;
+	line-height: 30px;
 }
 
 .wapper {
@@ -244,11 +262,164 @@ footer {
 	transition: all ease .3s;
 }
 
+.link-container .link-wapper li a {
+	color: inherit;
+}
+
 .link-container .link-wapper li:hover {
-	/*background: rgba(255,255,255,0.87);
-	color:#596984;*/
 	background: #15c9ee;
 	box-shadow: 0 2px 9px 0 rgba(0,0,0,0.20);
 	border-radius: 6px;
-	
+}
+
+.tips-text {
+	line-height: 50px;
+	text-align: center;
+	color: #FFF;
+	letter-spacing: 2px;
+}
+
+.choose-school-wapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.15);
+	z-index: 999999;
+	display: none;
+}
+
+.chooose-container {
+	width: 800px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	margin-left: -400px;
+	top: 20%;
+	background: #FFFFFF;
+	box-shadow: 0 3px 8px 0 rgba(0,0,0,0.21);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.chooose-container .title {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 18px;
+	color: #FFF;
+	background: #15c9ee;
+	letter-spacing: 1px;
+	position: relative;
+}
+
+.chooose-container .title i {
+    position: absolute;
+    right: 13px;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 38px;
+}
+
+.chooose-container .title i:hover {
+	color: #F4F4F4;
+}
+
+.chooose-container .title i:active {
+	color: #E6E6E6;
+}
+
+.step1,
+.step2 {
+	width: 652px;
+	height: 310px;
+	margin: 20px auto;
+}
+
+.step2 {
+	display: none;
+}
+
+.chooose-container .form-btn {
+	position: absolute;
+    bottom: 50px;
+    left: 50%;
+}
+
+.step1 .form-btn {
+	width: 170px;
+    margin-left: -85px;
+}
+
+.step2 .form-btn {
+	width: 255px;
+    margin-left: -127px;
+}
+
+.list li {
+	float: left;
+	width: 83px;
+	height: 35px;
+	line-height: 35px;
+	margin: 5px;
+	text-align: center;
+	cursor: pointer;
+	transition: all ease .3s;
+}
+
+.step2 .list li {
+	width: auto;
+    padding: 0 15px;
+}
+
+.form-btn button {
+	width: 75px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin: 0 5px;
+	border-radius: 4px;
+	border: 1px solid #E1E6EB;
+	transition: all ease .3s;
+}
+
+.form-btn .cancel,
+.form-btn .last {
+	background-color: #FAFAFA;
+	color: #22282E;
+}
+
+.list li:hover,
+.list li.current,
+.form-btn .ok,
+.form-btn .next {
+	color: #fff;
+    background-color: #15c9ee;
+    border-color: #15c9ee;
+}
+
+.form-btn .ok:hover,
+.form-btn .next:hover {
+	background-color: #2BCEEF;
+    border-color: #2BCEEF;
+}
+
+.form-btn .ok:active,
+.form-btn .next:active {
+	background-color: #12B3D4;
+    border-color: #12B3D4;
+}
+
+.form-btn .cancel:hover,
+.form-btn .last:hover {
+	background-color: #F2F1F1;
+    border-color: #F2F1F1;
+}
+
+.form-btn .cancel:active,
+.form-btn .last:active {
+	background-color: #DFDFDF;
+    border-color: #DFDFDF;
 }

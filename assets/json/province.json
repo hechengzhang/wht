@@ -1,25 +1,25 @@
 {
 	"provinceList": [
 		{
-			"provinceName": "湖南",
+			"provinceName": "湖南省",
 			"schoolList": [
 				{
 					"schoolName": "湖南师范大学",
-					"schooId": "1"
+					"schoolId": "1"
 				}, {
 					"schoolName": "中南大学",
-					"schooId": "2"
+					"schoolId": "2"
 				}
 			]
 		}, {
-			"provinceName": "湖北",
+			"provinceName": "湖北省",
 			"schoolList": [
 				{
 					"schoolName": "武汉大学",
-					"schooId": "3"
+					"schoolId": "3"
 				}, {
 					"schoolName": "武汉师范大学",
-					"schooId": "4"
+					"schoolId": "4"
 				}
 			]
 		}
