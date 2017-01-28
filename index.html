@@ -16,14 +16,42 @@
 		<div class="main">
 			<div class="wapper">
 				<div class="search-part">
-					<div class="search-input clear-both">
-						<input id="search" type="text" placeholder="搜索其实很简单..." />
-						<button id="taobao"><i class="iconfont icon-taobao"></i></button>
-						<button id="google"><i class="iconfont icon-google"></i></button>
-						<button class="current" id="baidu"><i class="iconfont icon-baidu"></i></button>
+					<form id="search-form" target="_blank">
+						<div class="search-input clear-both">
+							<input maxlength="100" id="search" type="text" placeholder="搜索其实很简单..." />
+							<button type="button" id="choosed-search"></button>
+							<ul class='search-ul'>
+								<li id="baidu" class="current">百度</li>
+								<li id="google">谷歌</li>
+								<li id="taobao">淘宝</li>
+							</ul>
+						</div>
+						
+						<button type="submit" id="search-btn">搜索</button>
+					</form>
+				</div>
+				
+				<div class="link-container">
+					<div id="school">
+						<span class="title">校内链接</span>
+						<ul class="link-wapper clear-both">
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+							<li><a>教务管理系统</a></li>
+						</ul>
 					</div>
 					
-					<button type="button" id="search-btn"><i class="iconfont icon-search">搜索</i></button>
+					<div id="common">
+						<span class="title">常用链接</span>
+						<ul class="link-wapper clear-both"></ul>
+					</div>
 				</div>
 			</div>
 		</div>

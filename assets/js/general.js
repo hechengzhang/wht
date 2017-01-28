@@ -4,9 +4,29 @@ $('body').ready(function(){
 });
 
 function searchEvent() {
+	$('#choosed-search').text($('.search-ul li.current').text()); // 获取默认搜索引擎
+	searchEngineEvent(); // 搜索引擎事件
+	
+	// 下拉菜单事件
+	$('body').on('click',function(){
+		if ($('.search-ul').hasClass('open')) {
+			$('.search-ul').removeClass('open');
+			$('.search-ul').slideUp();
+		}
+	});
+	
+	// 下拉菜单事件
+	$('#choosed-search').click(function(event){ 
+		event.stopPropagation(); // 禁止冒泡
+		$('.search-ul').toggleClass('open'); // 增加 .open 用来判断点击事件
+		$('.search-ul').slideToggle(); // 打开或收起下拉选项
+	});
+	
 	// 搜索引擎切换
-	$('.search-input').on('click','button',function(){
+	$('.search-ul').on('click','li',function(){
 		$(this).addClass('current').siblings('.current').removeClass('current');
+		$('#choosed-search').text($(this).text()); // 显示已选搜索引擎文本
+		searchEngineEvent(); // 搜索引擎事件
 	});
 	
 	// 搜索按钮
@@ -31,6 +51,19 @@ function searchEvent() {
 			}
 		}
 	});
+}
+
+function searchEngineEvent() {
+	if ($('#baidu').hasClass('current')) {
+		$('#search-form').attr('action','http://www.baidu.com/baidu').removeAttr('method','get');
+		$('#search').attr('name','word');
+	} else if ($('#google').hasClass('current')) {
+		$('#search-form').attr({'action':'https://www.google.com.hk/search','method':'get'});
+		$('#search').attr('name','q');
+	} else if ($('#taobao').hasClass('current')) {
+		$('#search-form').attr('action','https://s.taobao.com/search').removeAttr('method','get');
+		$('#search').attr('name','q');
+	}
 }
 
 function provinceList() {
