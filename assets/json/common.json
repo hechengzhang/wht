@@ -1,0 +1,17 @@
+{
+	"commonList": [
+		{
+			"linkName": "淘宝",
+			"linkUrl": "http://www.taobao.com",
+			"img": ""
+		}, {
+			"linkName": "百度",
+			"linkUrl": "https://www.baidu.com",
+			"img": ""
+		}, {
+			"linkName": "支付宝",
+			"linkUrl": "https://www.alipay.com",
+			"img": ""
+		}
+	]
+}

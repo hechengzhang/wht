@@ -1,4 +1,5 @@
 $('body').ready(function(){
+	commonList(); // 常用链接
 	provinceList(); // 省份列表
 	searchEvent(); // 搜索
 	
@@ -150,4 +151,26 @@ function provinceList() {
 		}
 		
 	});
+}
+
+function commonList() {
+	$.ajax({
+		url: 'assets/json/common.json',
+	    type: 'post',
+	    data: {},
+	    contentType : "application/json; charset=utf-8",
+	    dataType: 'json',
+	    async: false,
+	    cache : false,
+	    success:function(response){
+	    		$('#common .link-wapper').html('');
+			var resp = response.commonList;
+			$.each(resp, function(i,item) {
+				var commonList = '';
+				commonList = '<li><a href="'+ item.linkUrl +'" target="_blank">'+ item.linkName +'</a></li>';
+				$('#common .link-wapper').append(commonList);
+			});
+		}
+	});
+			
 }
